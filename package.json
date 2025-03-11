@@ -1,0 +1,37 @@
+{
+	"name": "phv-kit",
+	"version": "1.0.0",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "rm -rf dist && prettier --write src/ && npm run build:cjs && npm run build:esm",
+		"build:cjs": "tsc",
+		"build:esm": "tsc --module CommonJS --outDir dist/cjs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pedrohrodrig/personal-react-library.git"
+	},
+	"author": "Pedro Henrique Rodrigues de Viveiros",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/pedrohrodrig/personal-react-library/issues"
+	},
+	"homepage": "https://github.com/pedrohrodrig/personal-react-library#readme",
+	"description": "An personal component library for React",
+	"devDependencies": {
+		"@types/node": "^22.13.10",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"typescript": "^5.8.2"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	}
+}
