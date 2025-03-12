@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { peerDependencies } from './package.json';
@@ -16,5 +18,10 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true
   },
-  plugins: [dts()]
+  plugins: [dts()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.ts'
+  }
 });
