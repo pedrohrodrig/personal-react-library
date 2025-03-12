@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "prettier": "prettier --write --parser typescript '**/*.{ts,tsx}'",
-    "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore --fix",
+    "lint": "eslint . --ext .ts,.tsx --ignore-pattern .gitignore --fix",
     "test": "vitest run",
     "test-watch": "vitest",
     "test:ui": "vitest --ui",

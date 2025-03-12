@@ -1,10 +1,12 @@
+import React from 'react';
 import { FC } from 'react';
-import Button, { ButtonProps } from '../';
+import Button from '../';
+import { ButtonProps } from '../types';
 
 const Example: FC<ButtonProps> = ({
   disabled = false,
   onClick = () => {},
-  primary = true,
+  variant = 'primary',
   size = 'small',
   text = 'Button'
 }) => {
@@ -22,7 +24,7 @@ const Example: FC<ButtonProps> = ({
         text={text}
         disabled={disabled}
         onClick={onClick}
-        primary={primary}
+        variant={variant}
       />
     </div>
   );

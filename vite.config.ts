@@ -3,6 +3,7 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { peerDependencies } from './package.json';
+import path from 'path';
 
 export default defineConfig({
   build: {
@@ -19,6 +20,11 @@ export default defineConfig({
     emptyOutDir: true
   },
   plugins: [dts()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
   test: {
     globals: true,
     environment: 'jsdom',
