@@ -3,7 +3,21 @@ import Example from './Example';
 
 const meta: Meta<typeof Example> = {
   title: 'Button',
-  component: Example
+  component: Example,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'outline', 'ghost']
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large']
+    },
+    iconPosition: {
+      control: 'select',
+      options: ['left', 'right']
+    }
+  }
 };
 
 export default meta;
@@ -15,15 +29,22 @@ export const Primary: Story = {
     variant: 'primary',
     disabled: false,
     size: 'small',
-    onClick: () => console.log('Button')
+    onClick: () => console.log('Button'),
+    icon: null,
+    iconPosition: 'right',
+    fullWidth: false
   }
 };
+
 export const Secondary: Story = {
   args: {
     text: 'Button',
     variant: 'secondary',
     disabled: false,
     size: 'small',
-    onClick: () => console.log('Button')
+    onClick: () => console.log('Button'),
+    icon: null,
+    iconPosition: 'right',
+    fullWidth: false
   }
 };

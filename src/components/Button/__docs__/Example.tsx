@@ -8,7 +8,10 @@ const Example: FC<ButtonProps> = ({
   onClick = () => {},
   variant = 'primary',
   size = 'small',
-  text = 'Button'
+  text = 'Button',
+  icon,
+  iconPosition = 'right',
+  fullWidth = false
 }) => {
   return (
     <div
@@ -25,6 +28,9 @@ const Example: FC<ButtonProps> = ({
         disabled={disabled}
         onClick={onClick}
         variant={variant}
+        icon={icon}
+        iconPosition={iconPosition}
+        fullWidth={fullWidth}
       />
     </div>
   );

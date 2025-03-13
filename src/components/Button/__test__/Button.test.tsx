@@ -6,10 +6,20 @@ import '@testing-library/jest-dom';
 
 describe('Button component', () => {
   it('Button should render correctly', () => {
-    render(<Button />);
+    render(<Button text="Button" />);
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
   });
-});
 
-// teste
+  it('Button should render with the correct text', () => {
+    render(<Button text="Click me" />);
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent('Click me');
+  });
+
+  it('Button should be disabled when the disabled prop is true', () => {
+    render(<Button text="Button" disabled />);
+    const button = screen.getByRole('button');
+    expect(button).toBeDisabled();
+  });
+});
