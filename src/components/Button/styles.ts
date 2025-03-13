@@ -39,3 +39,13 @@ export const StyledButton = styled.button<ButtonProps>`
       ? `${spacing.xs} ${spacing.sm}`
       : `${spacing.sm} ${spacing.md}`};
 `;
+
+export const ButtonContent = styled.div<ButtonProps>`
+  width: 100%;
+  display: flex;
+  flex-direction: ${(props) =>
+    props.iconPosition === 'right' ? 'row' : 'row-reverse'};
+  justify-content: center;
+  align-items: center;
+  gap: ${spacing.sm};
+`;

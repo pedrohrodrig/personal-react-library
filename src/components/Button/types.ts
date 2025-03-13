@@ -5,4 +5,6 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   disabled?: boolean;
   size?: 'small' | 'medium' | 'large';
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
 };
