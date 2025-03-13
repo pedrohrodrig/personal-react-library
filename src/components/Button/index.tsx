@@ -9,10 +9,17 @@ const Button: React.FC<ButtonProps> = ({
   text,
   icon,
   iconPosition = 'right',
+  fullWidth = false,
   ...props
 }) => {
   return (
-    <StyledButton variant={variant} disabled={disabled} size={size} {...props}>
+    <StyledButton
+      fullWidth={fullWidth}
+      variant={variant}
+      disabled={disabled}
+      size={size}
+      {...props}
+    >
       <ButtonContent iconPosition={iconPosition}>
         {text}
         {icon}

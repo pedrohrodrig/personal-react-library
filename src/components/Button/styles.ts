@@ -17,7 +17,42 @@ const getBackgroundColor = (variant: ButtonProps['variant']) => {
   }
 };
 
+const getButtonMinWidth = (
+  fullWidth: ButtonProps['fullWidth'],
+  size: ButtonProps['size']
+) => {
+  if (fullWidth) {
+    return 'none';
+  }
+
+  switch (size) {
+    case 'small':
+      return '8rem';
+    case 'medium':
+      return '9.3rem';
+    case 'large':
+      return '11.25rem';
+    default:
+      return '9.3rem';
+  }
+};
+
+const getButtonHeight = (size: ButtonProps['size']) => {
+  switch (size) {
+    case 'small':
+      return 'auto';
+    case 'medium':
+      return '2.5rem';
+    case 'large':
+      return '3rem';
+    default:
+      return '2.5rem';
+  }
+};
+
 export const StyledButton = styled.button<ButtonProps>`
+  min-width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
+  height: ${(props) => getButtonHeight(props.size)};
   border: ${(props) =>
     props.variant === 'outline'
       ? `${borderRadius.md} solid ${colors.info.default}`
