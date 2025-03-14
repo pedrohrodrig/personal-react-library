@@ -22,7 +22,7 @@ const getButtonMinWidth = (
   size: ButtonProps['size']
 ) => {
   if (fullWidth) {
-    return 'none';
+    return '100%';
   }
 
   switch (size) {
@@ -55,7 +55,7 @@ export const StyledButton = styled.button<ButtonProps>`
   height: ${(props) => getButtonHeight(props.size)};
   border: ${(props) =>
     props.variant === 'outline'
-      ? `${borderRadius.md} solid ${colors.primary.default}`
+      ? `${borderRadius.sm} solid ${colors.primary.default}`
       : 'none'};
   line-height: 1;
   font-size: ${fonts.size.base};
@@ -65,11 +65,13 @@ export const StyledButton = styled.button<ButtonProps>`
   display: inline-block;
   text-align: center;
   color: ${(props) =>
-    props.variant === 'primary'
+    props.variant === 'primary' || props.variant === 'secondary'
       ? colors.grayscale.white
-      : props.variant === 'ghost'
+      : props.variant === 'ghost' || props.variant === 'outline'
         ? colors.primary.default
         : colors.grayscale.black};
+  text-decoration: ${(props) =>
+    props.variant === 'ghost' ? 'underline' : 'none'};
   background-color: ${(props) => getBackgroundColor(props.variant)};
   padding: ${(props) =>
     props.size === 'small'
