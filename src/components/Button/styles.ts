@@ -8,6 +8,14 @@ const getBackgroundColor = (variant: ButtonProps['variant']) => {
       return colors.primary.default;
     case 'secondary':
       return colors.secondary.default;
+    case 'success':
+      return colors.success.default;
+    case 'warning':
+      return colors.warning.default;
+    case 'info':
+      return colors.info.default;
+    case 'danger':
+      return colors.danger.default;
     case 'outline':
       return colors.grayscale.white;
     case 'ghost':
@@ -50,6 +58,24 @@ const getButtonHeight = (size: ButtonProps['size']) => {
   }
 };
 
+const getTextColor = (variant: ButtonProps['variant']) => {
+  switch (variant) {
+    case 'primary':
+    case 'secondary':
+    case 'info':
+    case 'danger':
+      return colors.grayscale.white;
+    case 'success':
+    case 'warning':
+      return colors.grayscale[800];
+    case 'outline':
+    case 'ghost':
+      return colors.primary.default;
+    default:
+      return colors.grayscale.black;
+  }
+};
+
 export const StyledButton = styled.button<ButtonProps>`
   min-width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
   height: ${(props) => getButtonHeight(props.size)};
@@ -64,12 +90,7 @@ export const StyledButton = styled.button<ButtonProps>`
   border-radius: ${borderRadius.md};
   display: inline-block;
   text-align: center;
-  color: ${(props) =>
-    props.variant === 'primary' || props.variant === 'secondary'
-      ? colors.grayscale.white
-      : props.variant === 'ghost' || props.variant === 'outline'
-        ? colors.primary.default
-        : colors.grayscale.black};
+  color: ${(props) => getTextColor(props.variant)};
   text-decoration: ${(props) =>
     props.variant === 'ghost' ? 'underline' : 'none'};
   background-color: ${(props) => getBackgroundColor(props.variant)};

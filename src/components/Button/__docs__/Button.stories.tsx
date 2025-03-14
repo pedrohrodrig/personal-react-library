@@ -7,7 +7,16 @@ const meta: Meta<typeof Example> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'ghost']
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'info',
+        'danger',
+        'outline',
+        'ghost'
+      ]
     },
     size: {
       control: 'select',
