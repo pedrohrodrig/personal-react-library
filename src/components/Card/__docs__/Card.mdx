@@ -1,0 +1,49 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import Example from './Example.tsx';
+import * as Card from './Card.stories.tsx';
+
+<Meta of={Card} title="Card" />
+
+# Card
+
+Card component with customizable props.
+
+#### Example
+
+<Canvas of={Card.Component} />
+
+## Usage
+
+```tsx
+import { Card } from 'sld-ui';
+
+const Example = () => {
+  return (
+    <Card
+      title="Card Title"
+      description="This is a description of the card."
+      direction="vertical"
+      image="https://via.placeholder.com/300"
+      imageAlt="Placeholder Image"
+      body={<p>This is the body content of the card.</p>}
+      footer={<p>Footer content here</p>}
+      fullWidth={false}
+    />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **title** _`string`_ - The title of the card.
+- **description** _`string`_ - A description for the card.
+- **direction** _`'vertical' | 'horizontal'`_ - The layout direction of the
+  card.
+- **image** _`string`_ - The URL of the image to display in the card.
+- **imageAlt** _`string`_ - The alt text for the image.
+- **body** _`ReactNode`_ - The body content of the card.
+- **footer** _`ReactNode`_ - The footer content of the card.
+- **fullWidth** _`boolean`_ - Whether the card should take the full width of its
+  container.
