@@ -1,17 +1,29 @@
 import React from 'react';
 import { ButtonProps } from './types';
-import { StyledButton } from './styles';
+import { StyledButton, ButtonContent } from './styles';
 
 const Button: React.FC<ButtonProps> = ({
   size,
   variant = 'primary',
-  disabled,
+  disabled = false,
   text,
+  icon,
+  iconPosition = 'right',
+  fullWidth = false,
   ...props
 }) => {
   return (
-    <StyledButton variant={variant} disabled={disabled} size={size} {...props}>
-      {text}
+    <StyledButton
+      fullWidth={fullWidth}
+      variant={variant}
+      disabled={disabled}
+      size={size}
+      {...props}
+    >
+      <ButtonContent iconPosition={iconPosition}>
+        {text}
+        {icon}
+      </ButtonContent>
     </StyledButton>
   );
 };
