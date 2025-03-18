@@ -2,7 +2,17 @@ import styled from 'styled-components';
 import { ButtonProps } from './types';
 import { colors, fonts, borderRadius, spacing } from '@/styles';
 
-const getBackgroundColor = (variant: ButtonProps['variant']) => {
+const getBackgroundColor = (
+  variant: ButtonProps['variant'],
+  disabled: ButtonProps['disabled']
+) => {
+  if (disabled) {
+    if (variant === 'outline') {
+      return colors.grayscale.white;
+    }
+    return colors.grayscale[100];
+  }
+
   switch (variant) {
     case 'primary':
       return colors.primary.default;
@@ -58,7 +68,18 @@ const getButtonHeight = (size: ButtonProps['size']) => {
   }
 };
 
-const getTextColor = (variant: ButtonProps['variant']) => {
+const getTextColor = (
+  variant: ButtonProps['variant'],
+  disabled: ButtonProps['disabled']
+) => {
+  if (disabled) {
+    if (variant === 'outline') {
+      return colors.grayscale[200];
+    }
+
+    return colors.grayscale.white;
+  }
+
   switch (variant) {
     case 'primary':
     case 'secondary':
@@ -80,20 +101,23 @@ export const StyledButton = styled.button<ButtonProps>`
   min-width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
   height: ${(props) => getButtonHeight(props.size)};
   border: ${(props) =>
-    props.variant === 'outline'
-      ? `${borderRadius.sm} solid ${colors.primary.default}`
-      : 'none'};
+    props.disabled
+      ? `${borderRadius.sm} solid ${colors.grayscale[200]}`
+      : props.variant === 'outline'
+        ? `${borderRadius.sm} solid ${colors.primary.default}`
+        : 'none'};
   line-height: 1;
   font-size: ${fonts.size.base};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   font-weight: ${fonts.weight.bold};
   border-radius: ${borderRadius.md};
   display: inline-block;
   text-align: center;
-  color: ${(props) => getTextColor(props.variant)};
+  color: ${(props) => getTextColor(props.variant, props.disabled)};
   text-decoration: ${(props) =>
     props.variant === 'ghost' ? 'underline' : 'none'};
-  background-color: ${(props) => getBackgroundColor(props.variant)};
+  background-color: ${(props) =>
+    getBackgroundColor(props.variant, props.disabled)};
   padding: ${(props) =>
     props.size === 'small'
       ? `${spacing.xs} ${spacing.sm}`
