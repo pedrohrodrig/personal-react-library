@@ -85,8 +85,8 @@ const getTextColor = (
     case 'secondary':
     case 'info':
     case 'danger':
-      return colors.grayscale.white;
     case 'success':
+      return colors.grayscale.white;
     case 'warning':
       return colors.grayscale[800];
     case 'outline':
@@ -114,8 +114,6 @@ export const StyledButton = styled.button<ButtonProps>`
   display: inline-block;
   text-align: center;
   color: ${(props) => getTextColor(props.variant, props.disabled)};
-  text-decoration: ${(props) =>
-    props.variant === 'ghost' ? 'underline' : 'none'};
   background-color: ${(props) =>
     getBackgroundColor(props.variant, props.disabled)};
   padding: ${(props) =>
