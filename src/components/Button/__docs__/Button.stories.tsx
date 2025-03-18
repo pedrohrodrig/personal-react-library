@@ -32,23 +32,10 @@ const meta: Meta<typeof Example> = {
 export default meta;
 type Story = StoryObj<typeof Example>;
 
-export const Primary: Story = {
+export const Component: Story = {
   args: {
     text: 'Button',
     variant: 'primary',
-    disabled: false,
-    size: 'small',
-    onClick: () => console.log('Button'),
-    icon: null,
-    iconPosition: 'right',
-    fullWidth: false
-  }
-};
-
-export const Secondary: Story = {
-  args: {
-    text: 'Button',
-    variant: 'secondary',
     disabled: false,
     size: 'small',
     onClick: () => console.log('Button'),
