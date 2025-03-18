@@ -2,6 +2,36 @@ import styled from 'styled-components';
 import { ButtonProps } from './types';
 import { colors, fonts, borderRadius, spacing } from '@/styles';
 
+const getHoverBackgroundColor = (
+  variant: ButtonProps['variant'],
+  disabled: ButtonProps['disabled']
+) => {
+  if (disabled) {
+    return colors.grayscale[100];
+  }
+
+  switch (variant) {
+    case 'primary':
+      return colors.primary.light;
+    case 'secondary':
+      return colors.secondary.light;
+    case 'success':
+      return colors.success.light;
+    case 'warning':
+      return colors.warning.light;
+    case 'info':
+      return colors.info.light;
+    case 'danger':
+      return colors.danger.light;
+    case 'outline':
+      return colors.grayscale[200];
+    case 'ghost':
+      return colors.grayscale[100];
+    default:
+      return colors.primary.light;
+  }
+};
+
 const getBackgroundColor = (
   variant: ButtonProps['variant'],
   disabled: ButtonProps['disabled']
@@ -120,6 +150,11 @@ export const StyledButton = styled.button<ButtonProps>`
     props.size === 'small'
       ? `${spacing.xs} ${spacing.sm}`
       : `${spacing.sm} ${spacing.md}`};
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: ${(props) =>
+      getHoverBackgroundColor(props.variant, props.disabled)};
+  }
 `;
 
 export const ButtonContent = styled.div<ButtonProps>`
