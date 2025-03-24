@@ -1,15 +1,16 @@
-import { FC } from 'react';
+import React from 'react';
 import Card from '../';
 import { CardProps } from '../types';
 import { Description } from '../styles';
+import Button from '@/components/Button';
 
-const Example: FC<CardProps> = ({
+const Example: React.FC<CardProps> = ({
   title = 'Card Title',
   description = 'This is a description of the card.',
   direction = 'vertical',
   image = 'https://placehold.co/300',
   imageAlt = 'Placeholder Image',
-  footer = <p>Footer content here</p>,
+  footer = <Description>Footer content here</Description>,
   fullWidth = false,
   ...props
 }) => {
@@ -33,7 +34,16 @@ const Example: FC<CardProps> = ({
         fullWidth={fullWidth}
         {...props}
       >
-        <Description>This is the body content of the card.</Description>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '1rem'
+          }}
+        >
+          <Button>Button 1</Button>
+          <Button variant="outline">Button 2</Button>
+        </div>
       </Card>
     </div>
   );

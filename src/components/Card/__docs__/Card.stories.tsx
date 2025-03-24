@@ -38,7 +38,7 @@ export const Component: Story = {
         <Button variant="outline">Button 2</Button>
       </div>
     ),
-    footer: null,
+    footer: <p>Footer content here</p>,
     fullWidth: false
   }
 };
