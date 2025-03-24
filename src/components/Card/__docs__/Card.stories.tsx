@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Example from './Example';
 import Button from '@/components/Button';
@@ -35,8 +34,8 @@ export const Component: Story = {
           gap: '1rem'
         }}
       >
-        <Button text="Button 1" />
-        <Button variant="outline" text="Button 2" />
+        <Button>Button 1</Button>
+        <Button variant="outline">Button 2</Button>
       </div>
     ),
     footer: null,

@@ -5,5 +5,11 @@
   "editor.formatOnPaste": true,
   "editor.wordWrap": "on",
   "git.ignoreLimitWarning": true,
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "eslint.rules.customizations": [
+    {
+      "rule": "react/react-in-jsx-scope",
+      "severity": "off"
+    }
+  ]
 }
