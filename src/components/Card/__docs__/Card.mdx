@@ -25,10 +25,11 @@ const Example = () => {
       direction="vertical"
       image="https://via.placeholder.com/300"
       imageAlt="Placeholder Image"
-      children={<p>This is the body content of the card.</p>}
       footer={<p>Footer content here</p>}
       fullWidth={false}
-    />
+    >
+      <p>This is the body content of the card.</p>
+    </Card>
   );
 };
 
@@ -43,7 +44,6 @@ export default Example;
   card.
 - **image** _`string`_ - The URL of the image to display in the card.
 - **imageAlt** _`string`_ - The alt text for the image.
-- **children** _`ReactNode`_ - The body content of the card.
 - **footer** _`ReactNode`_ - The footer content of the card.
 - **fullWidth** _`boolean`_ - Whether the card should take the full width of its
   container.
