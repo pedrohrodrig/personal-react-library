@@ -68,3 +68,11 @@ export const Footer = styled.div`
   margin-top: ${spacing.sm};
   border-top: 1px solid ${colors.grayscale[300]};
 `;
+
+export const Image = styled.img<CardProps>`
+  width: ${({ fullWidth, direction }) =>
+    fullWidth && direction === 'horizontal' ? 'fit-content' : 'auto'};
+  height: auto;
+  max-height: 500px;
+  ${({ direction }) => direction === 'horizontal' && 'max-width: 500px'}
+`;

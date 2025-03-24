@@ -7,7 +7,8 @@ import {
   Description,
   Title,
   Footer,
-  Body
+  Body,
+  Image
 } from './styles';
 
 // TODO: refactor footer and content to sub components
@@ -25,10 +26,11 @@ const Card: React.FC<CardProps> = ({
   return (
     <StyledCard direction={direction} fullWidth={fullWidth} {...props}>
       {image && (
-        <img
+        <Image
+          fullWidth={fullWidth}
+          direction={direction}
           src={image}
           alt={imageAlt}
-          style={{ width: '100%', height: 'auto' }}
         />
       )}
       <Content direction={direction}>
