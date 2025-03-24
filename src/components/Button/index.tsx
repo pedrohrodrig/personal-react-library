@@ -6,7 +6,7 @@ const Button: React.FC<ButtonProps> = ({
   size,
   variant = 'primary',
   disabled = false,
-  text,
+  children,
   icon,
   iconPosition = 'right',
   fullWidth = false,
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       <ButtonContent iconPosition={iconPosition}>
-        {text}
+        {children}
         {icon}
       </ButtonContent>
     </StyledButton>

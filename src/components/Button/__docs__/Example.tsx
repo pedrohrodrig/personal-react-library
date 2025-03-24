@@ -8,7 +8,6 @@ const Example: FC<ButtonProps> = ({
   onClick = () => {},
   variant = 'primary',
   size = 'small',
-  text = 'Button',
   icon,
   iconPosition = 'right',
   fullWidth = false
@@ -24,14 +23,15 @@ const Example: FC<ButtonProps> = ({
     >
       <Button
         size={size}
-        text={text}
         disabled={disabled}
         onClick={onClick}
         variant={variant}
         icon={icon}
         iconPosition={iconPosition}
         fullWidth={fullWidth}
-      />
+      >
+        Button
+      </Button>
     </div>
   );
 };

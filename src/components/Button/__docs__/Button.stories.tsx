@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Example from './Example';
 
@@ -34,7 +35,7 @@ type Story = StoryObj<typeof Example>;
 
 export const Component: Story = {
   args: {
-    text: 'Button',
+    children: <p>Button</p>,
     variant: 'primary',
     disabled: false,
     size: 'small',

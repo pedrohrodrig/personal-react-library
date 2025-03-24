@@ -21,13 +21,14 @@ const Example = () => {
   return (
     <Button
       size="small"
-      text="Button"
       onClick={() => console.log("Clicked")}
       variant="primary"
       icon={null}
       iconPosition="right"
       fullWidth={false}
-    />
+    >
+      Button
+    </Button>
   );
 };
 
@@ -36,7 +37,7 @@ export default Example;
 
 #### Arguments
 
-- **text** _`string`_ - A string that represents the text content of the button.
+- **children** _`React.ReactNode`_ - The content of the button.
 - **variant** _`'primary' | 'secondary' | 'outline' | 'ghost'`_ - The variant of
   the button.
 - **disabled** _`boolean`_ - A boolean indicating whether the button should be

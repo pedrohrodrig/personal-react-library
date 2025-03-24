@@ -128,7 +128,8 @@ const getTextColor = (
 };
 
 export const StyledButton = styled.button<ButtonProps>`
-  min-width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
+  min-width: fit-content;
+  width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
   height: ${(props) => getButtonHeight(props.size)};
   border: ${(props) =>
     props.disabled

@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  text?: string;
+  children?: React.ReactNode;
   variant?:
     | 'primary'
     | 'secondary'
