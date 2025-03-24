@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
         {footer && (
           <>
             <hr />
-            <div>{footer}</div>
+            {footer}
           </>
         )}
       </CardContentContainer>

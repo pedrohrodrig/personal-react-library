@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Example from './Example';
+import Button from '@/components/Button';
 
 const meta: Meta<typeof Example> = {
   title: 'Card',
@@ -26,8 +27,19 @@ export const Component: Story = {
     direction: 'vertical',
     image: 'https://placehold.co/300',
     imageAlt: 'Placeholder Image',
-    body: <p>This is the body content of the card.</p>,
-    footer: <p>Footer content here</p>,
+    body: (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '1rem'
+        }}
+      >
+        <Button text="Button 1" />
+        <Button variant="outline" text="Button 2" />
+      </div>
+    ),
+    footer: null,
     fullWidth: false
   }
 };
