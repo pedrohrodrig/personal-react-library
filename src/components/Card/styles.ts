@@ -10,7 +10,7 @@ const getContainerMaxWidth = ({ direction, fullWidth }: CardProps) => {
   return '800px';
 };
 
-export const CardContainer = styled.div<CardProps>`
+export const StyledCard = styled.div<CardProps>`
   display: flex;
   flex-direction: ${({ direction }) =>
     direction === 'vertical' ? 'column' : 'row'};
@@ -21,18 +21,28 @@ export const CardContainer = styled.div<CardProps>`
   max-width: ${getContainerMaxWidth};
 `;
 
-export const CardContentContainer = styled.div<CardProps>`
+export const Content = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
-  gap: ${spacing.xl};
-  padding: ${spacing.md};
-  width: '100%';
+  ${({ direction }) =>
+    direction === 'vertical'
+      ? `gap: ${spacing.lg};`
+      : `justify-content: space-between;`}
+  padding: ${spacing.md} 0;
+  width: 100%;
 `;
 
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacing.md};
+  padding-left: ${spacing.md};
+  padding-right: ${spacing.md};
+`;
+
+export const Body = styled.div`
+  padding-left: ${spacing.md};
+  padding-right: ${spacing.md};
 `;
 
 export const Title = styled.h2`
@@ -55,6 +65,6 @@ export const Footer = styled.div`
   flex-direction: column;
   gap: ${spacing.md};
   padding: ${spacing.md};
-  margin-top: ${spacing.md};
+  margin-top: ${spacing.sm};
   border-top: 1px solid ${colors.grayscale[300]};
 `;

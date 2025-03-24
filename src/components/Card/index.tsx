@@ -1,12 +1,13 @@
 import React from 'react';
 import { CardProps } from './types';
 import {
-  CardContainer,
-  CardContentContainer,
+  StyledCard,
+  Content,
   Header,
   Description,
   Title,
-  Footer
+  Footer,
+  Body
 } from './styles';
 
 // TODO: refactor footer and content to sub components
@@ -22,7 +23,7 @@ const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   return (
-    <CardContainer direction={direction} fullWidth={fullWidth} {...props}>
+    <StyledCard direction={direction} fullWidth={fullWidth} {...props}>
       {image && (
         <img
           src={image}
@@ -30,15 +31,15 @@ const Card: React.FC<CardProps> = ({
           style={{ width: '100%', height: 'auto' }}
         />
       )}
-      <CardContentContainer>
+      <Content direction={direction}>
         <Header>
           {title && <Title>{title}</Title>}
           {description && <Description>{description}</Description>}
         </Header>
-        {children && <div>{children}</div>}
-      </CardContentContainer>
-      {footer && <Footer>{footer}</Footer>}
-    </CardContainer>
+        {children && <Body>{children}</Body>}
+        {footer && <Footer>{footer}</Footer>}
+      </Content>
+    </StyledCard>
   );
 };
 
