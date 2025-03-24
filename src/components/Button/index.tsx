@@ -7,8 +7,6 @@ const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   disabled = false,
   children,
-  icon,
-  iconPosition = 'right',
   fullWidth = false,
   ...props
 }) => {
@@ -20,10 +18,7 @@ const Button: React.FC<ButtonProps> = ({
       size={size}
       {...props}
     >
-      <ButtonContent iconPosition={iconPosition}>
-        {children}
-        {icon}
-      </ButtonContent>
+      <ButtonContent>{children}</ButtonContent>
     </StyledButton>
   );
 };

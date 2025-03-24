@@ -158,11 +158,10 @@ export const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonContent = styled.div<ButtonProps>`
+export const ButtonContent = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: ${(props) =>
-    props.iconPosition === 'right' ? 'row' : 'row-reverse'};
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: ${spacing.sm};

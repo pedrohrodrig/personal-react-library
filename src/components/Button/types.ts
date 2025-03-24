@@ -13,7 +13,5 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     | 'ghost';
   disabled?: boolean;
   size?: 'small' | 'medium' | 'large';
-  icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
 };

@@ -22,10 +22,6 @@ const meta: Meta<typeof Example> = {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large']
-    },
-    iconPosition: {
-      control: 'select',
-      options: ['left', 'right']
     }
   }
 };
@@ -40,8 +36,6 @@ export const Component: Story = {
     disabled: false,
     size: 'small',
     onClick: () => console.log('Button'),
-    icon: null,
-    iconPosition: 'right',
     fullWidth: false
   }
 };
