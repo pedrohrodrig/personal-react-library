@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({
   direction = 'vertical',
   image,
   imageAlt,
-  body,
+  children,
   footer,
   fullWidth = false,
   ...props
@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
           {title && <Title>{title}</Title>}
           {description && <Description>{description}</Description>}
         </CardTextContainer>
-        {body && <div>{body}</div>}
+        {children && <div>{children}</div>}
         {footer && (
           <>
             <hr />

@@ -6,7 +6,7 @@ export type CardProps = HTMLAttributes<HTMLDivElement> & {
   direction?: 'vertical' | 'horizontal';
   image?: string;
   imageAlt?: string;
-  body?: ReactNode;
+  children?: ReactNode;
   footer?: ReactNode;
   fullWidth?: boolean;
 };

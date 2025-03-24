@@ -26,7 +26,7 @@ export const Component: Story = {
     direction: 'vertical',
     image: 'https://placehold.co/300',
     imageAlt: 'Placeholder Image',
-    body: (
+    children: (
       <div
         style={{
           display: 'flex',

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Card from '../';
 import { CardProps } from '../types';
+import { Description } from '../styles';
 
 const Example: FC<CardProps> = ({
   title = 'Card Title',
@@ -8,7 +9,6 @@ const Example: FC<CardProps> = ({
   direction = 'vertical',
   image = 'https://placehold.co/300',
   imageAlt = 'Placeholder Image',
-  body = <p>This is the body content of the card.</p>,
   footer = <p>Footer content here</p>,
   fullWidth = false,
   ...props
@@ -29,11 +29,12 @@ const Example: FC<CardProps> = ({
         direction={direction}
         image={image}
         imageAlt={imageAlt}
-        body={body}
         footer={footer}
         fullWidth={fullWidth}
         {...props}
-      />
+      >
+        <Description>This is the body content of the card.</Description>
+      </Card>
     </div>
   );
 };
