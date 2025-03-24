@@ -9,6 +9,7 @@ import {
   Footer
 } from './styles';
 
+// TODO: refactor footer and content to sub components
 const Card: React.FC<CardProps> = ({
   title,
   description,
