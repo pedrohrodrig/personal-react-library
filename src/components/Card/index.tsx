@@ -3,9 +3,10 @@ import { CardProps } from './types';
 import {
   CardContainer,
   CardContentContainer,
-  CardTextContainer,
+  Header,
   Description,
-  Title
+  Title,
+  Footer
 } from './styles';
 
 const Card: React.FC<CardProps> = ({
@@ -29,18 +30,13 @@ const Card: React.FC<CardProps> = ({
         />
       )}
       <CardContentContainer>
-        <CardTextContainer>
+        <Header>
           {title && <Title>{title}</Title>}
           {description && <Description>{description}</Description>}
-        </CardTextContainer>
+        </Header>
         {children && <div>{children}</div>}
-        {footer && (
-          <>
-            <hr />
-            {footer}
-          </>
-        )}
       </CardContentContainer>
+      {footer && <Footer>{footer}</Footer>}
     </CardContainer>
   );
 };

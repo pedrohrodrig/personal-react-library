@@ -29,7 +29,7 @@ export const CardContentContainer = styled.div<CardProps>`
   width: '100%';
 `;
 
-export const CardTextContainer = styled.div`
+export const Header = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacing.md};
@@ -48,4 +48,13 @@ export const Description = styled.p`
   font-size: ${fonts.size.sm};
   color: ${colors.grayscale.black};
   margin: 0;
+`;
+
+export const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing.md};
+  padding: ${spacing.md};
+  margin-top: ${spacing.md};
+  border-top: 1px solid ${colors.grayscale[300]};
 `;
