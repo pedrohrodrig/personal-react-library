@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AlertProps } from './types';
 import { ContentContainer, StyledAlert } from './styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +17,7 @@ const Alert: React.FC<AlertProps> = ({
   variant = 'filled',
   fixed = false,
   icon,
+  onClose,
   ...props
 }) => {
   const getIcon = () => {
@@ -39,13 +40,26 @@ const Alert: React.FC<AlertProps> = ({
     }
   };
 
-  return (
+  const [isClosed, setIsClosed] = useState(false);
+
+  return isClosed ? null : (
     <StyledAlert severity={severity} variant={variant} {...props}>
       <ContentContainer>
         {icon ? icon : getIcon()}
         <div>{children}</div>
       </ContentContainer>
-      {!fixed && <FontAwesomeIcon icon={faXmark} />}
+      {!fixed && (
+        <FontAwesomeIcon
+          icon={faXmark}
+          onClick={(e) => {
+            e.preventDefault();
+            if (onClose) {
+              onClose();
+            }
+            setIsClosed(true);
+          }}
+        />
+      )}
     </StyledAlert>
   );
 };

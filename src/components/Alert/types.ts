@@ -6,4 +6,5 @@ export type AlertProps = HTMLAttributes<HTMLDivElement> & {
   variant?: 'filled' | 'outlined';
   fixed?: boolean;
   icon?: ReactNode;
+  onClose?: () => void;
 };
