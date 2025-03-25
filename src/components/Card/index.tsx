@@ -24,7 +24,12 @@ const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   return (
-    <StyledCard direction={direction} fullWidth={fullWidth} {...props}>
+    <StyledCard
+      direction={direction}
+      fullWidth={fullWidth}
+      data-testid="card"
+      {...props}
+    >
       {image && (
         <Image
           fullWidth={fullWidth}

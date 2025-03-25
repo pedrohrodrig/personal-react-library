@@ -127,7 +127,9 @@ const getTextColor = (
   }
 };
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== 'fullWidth' // Filtra a prop fullWidth
+})<ButtonProps>`
   min-width: fit-content;
   width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
   height: ${(props) => getButtonHeight(props.size)};
@@ -152,6 +154,7 @@ export const StyledButton = styled.button<ButtonProps>`
       ? `${spacing.xs} ${spacing.sm}`
       : `${spacing.sm} ${spacing.md}`};
   transition: background-color 0.3s ease;
+
   &:hover {
     background-color: ${(props) =>
       getHoverBackgroundColor(props.variant, props.disabled)};

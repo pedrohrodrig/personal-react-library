@@ -10,7 +10,9 @@ const getContainerMaxWidth = ({ direction, fullWidth }: CardProps) => {
   return '800px';
 };
 
-export const StyledCard = styled.div<CardProps>`
+export const StyledCard = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'fullWidth' && prop !== 'direction'
+})<CardProps>`
   display: flex;
   flex-direction: ${({ direction }) =>
     direction === 'vertical' ? 'column' : 'row'};
@@ -69,10 +71,12 @@ export const Footer = styled.div`
   border-top: 1px solid ${colors.grayscale[300]};
 `;
 
-export const Image = styled.img<CardProps>`
+export const Image = styled.img.withConfig({
+  shouldForwardProp: (prop) => prop !== 'fullWidth' && prop !== 'direction'
+})<CardProps>`
   width: ${({ fullWidth, direction }) =>
     fullWidth && direction === 'horizontal' ? 'fit-content' : 'auto'};
   height: auto;
   max-height: 500px;
-  ${({ direction }) => direction === 'horizontal' && 'max-width: 500px'}
+  ${({ direction }) => direction === 'horizontal' && 'max-width: 500px;'}
 `;

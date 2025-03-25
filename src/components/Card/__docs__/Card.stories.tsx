@@ -24,7 +24,7 @@ export const Component: Story = {
     title: 'Card Title',
     description: 'This is a description of the card.',
     direction: 'vertical',
-    image: 'https://placehold.co/3000x500',
+    image: 'https://placehold.co/300',
     imageAlt: 'Placeholder Image',
     children: (
       <div
