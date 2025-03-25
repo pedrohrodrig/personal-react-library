@@ -17,20 +17,6 @@ describe('Alert component', () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it('should render a custom icon when the icon prop is provided', () => {
-    render(
-      <Alert
-        severity="info"
-        icon={<span data-testid="custom-icon">Custom Icon</span>}
-      >
-        Info Alert
-      </Alert>
-    );
-    const customIcon = screen.getByTestId('custom-icon');
-    expect(customIcon).toBeInTheDocument();
-    expect(customIcon).toHaveTextContent('Custom Icon');
-  });
-
   it('should render children content', () => {
     render(
       <Alert severity="warning">

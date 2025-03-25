@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
-import { AlertProps } from './types';
-import { ContentContainer, StyledAlert } from './styles';
+import { useState } from 'react';
+import { AlertDescriptionProps, AlertProps, AlertTitleProps } from './types';
+import {
+  ContentContainer,
+  Description,
+  StyledAlert,
+  TextContentContainer,
+  Title
+} from './styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheck,
@@ -10,16 +16,17 @@ import {
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
 import { colors } from '@/styles';
+import { AlertContext, useAlertContext } from './context';
 
-const Alert: React.FC<AlertProps> = ({
+const Alert = ({
   children,
   severity,
   variant = 'filled',
   fixed = false,
-  icon,
+  icon = true,
   onClose,
   ...props
-}) => {
+}: AlertProps) => {
   const getIcon = () => {
     const color =
       variant === 'outlined' ? colors[severity].dark : colors.grayscale.white;
@@ -43,25 +50,39 @@ const Alert: React.FC<AlertProps> = ({
   const [isClosed, setIsClosed] = useState(false);
 
   return isClosed ? null : (
-    <StyledAlert severity={severity} variant={variant} {...props}>
-      <ContentContainer>
-        {icon ? icon : getIcon()}
-        <div>{children}</div>
-      </ContentContainer>
-      {!fixed && (
-        <FontAwesomeIcon
-          icon={faXmark}
-          onClick={(e) => {
-            e.preventDefault();
-            if (onClose) {
-              onClose();
-            }
-            setIsClosed(true);
-          }}
-        />
-      )}
-    </StyledAlert>
+    <AlertContext.Provider value>
+      <StyledAlert severity={severity} variant={variant} {...props}>
+        <ContentContainer>
+          {icon && getIcon()}
+          <TextContentContainer>{children}</TextContentContainer>
+        </ContentContainer>
+        {!fixed && (
+          <FontAwesomeIcon
+            icon={faXmark}
+            onClick={(e) => {
+              e.preventDefault();
+              if (onClose) {
+                onClose();
+              }
+              setIsClosed(true);
+            }}
+          />
+        )}
+      </StyledAlert>
+    </AlertContext.Provider>
   );
+};
+
+Alert.Title = function AlertTitle({ children }: AlertTitleProps) {
+  useAlertContext();
+  return <Title>{children}</Title>;
+};
+
+Alert.Description = function AlertDescription({
+  children
+}: AlertDescriptionProps) {
+  useAlertContext();
+  return <Description>{children}</Description>;
 };
 
 export default Alert;

@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Alert from '../index';
-import { fonts } from '@/styles';
-
-// filepath: c:\Users\phrdv\OneDrive\Documentos\Projects\pessoal\personal-react-library\src\components\Alert\__docs__\Alert.stories.tsx
 
 const meta: Meta<typeof Alert> = {
   title: 'Alert',
@@ -28,7 +25,10 @@ type Story = StoryObj<typeof Alert>;
 export const Component: Story = {
   args: {
     children: (
-      <span style={{ fontFamily: fonts.family.dmSans }}>Alert Message</span>
+      <>
+        <Alert.Title>This is a title</Alert.Title>
+        <Alert.Description>This is a description</Alert.Description>
+      </>
     ),
     severity: 'info',
     variant: 'filled',
