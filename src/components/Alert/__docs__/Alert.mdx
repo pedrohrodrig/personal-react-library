@@ -1,0 +1,38 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import Example from './Example.tsx';
+import * as Alert from './Alert.stories.tsx';
+
+<Meta of={Alert} title="Alert" />
+
+# Alert
+
+Alert component with customizable props for different severities and styles.
+
+#### Example
+
+<Canvas of={Alert.Component} />
+
+## Usage
+
+```tsx
+import { Alert } from 'sld-ui';
+
+const Example = () => {
+  return (
+    <Alert severity="success" variant="filled">
+      This is a success alert!
+    </Alert>
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **children** _`ReactNode`_ - The content of the alert.
+- **severity** _`'success' | 'warning' | 'info' | 'danger'`_ - The severity
+  level of the alert.
+- **variant** _`'filled' | 'outlined'`_ - The style variant of the alert.
+- **fixed** _`boolean`_ - Whether the alert is fixed (non-dismissible).
+- **icon** _`ReactNode`_ - Custom icon to display in the alert.
