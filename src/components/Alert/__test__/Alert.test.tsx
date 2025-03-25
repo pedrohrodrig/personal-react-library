@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Alert from '../';
 import '@testing-library/jest-dom';
+import { colors } from '@/styles';
 
 describe('Alert component', () => {
   it('should render correctly', () => {
@@ -13,7 +14,7 @@ describe('Alert component', () => {
 
   it('should render the correct icon based on severity', () => {
     render(<Alert severity="success">Success Alert</Alert>);
-    const icon = screen.getByRole('img', { hidden: true });
+    const icon = screen.getByTestId('severity-icon');
     expect(icon).toBeInTheDocument();
   });
 
@@ -33,7 +34,7 @@ describe('Alert component', () => {
         Info Alert
       </Alert>
     );
-    const dismissIcon = screen.getByRole('img', { hidden: true });
+    const dismissIcon = screen.getByTestId('dismiss-icon');
     expect(dismissIcon).toBeInTheDocument();
   });
 
@@ -43,7 +44,7 @@ describe('Alert component', () => {
         Info Alert
       </Alert>
     );
-    const dismissIcon = screen.queryByRole('img', { hidden: true });
+    const dismissIcon = screen.queryByTestId('dismiss-icon');
     expect(dismissIcon).not.toBeInTheDocument();
   });
 
@@ -54,13 +55,46 @@ describe('Alert component', () => {
       </Alert>
     );
     const alert = screen.getByRole('alert');
-    expect(alert).toHaveClass('filled');
+    expect(alert).toHaveStyle(`background-color: ${colors.success.default}`);
 
     rerender(
       <Alert severity="success" variant="outlined">
         Outlined Alert
       </Alert>
     );
-    expect(alert).toHaveClass('outlined');
+    expect(alert).toHaveStyle(`border: 2px solid ${colors.success.default}`);
+  });
+
+  it('should render Title and Description inside Alert', () => {
+    render(
+      <Alert severity="info">
+        <Alert.Title>Alert Title</Alert.Title>
+        <Alert.Description>Alert Description</Alert.Description>
+      </Alert>
+    );
+
+    const title = screen.getByText('Alert Title');
+    const description = screen.getByText('Alert Description');
+
+    expect(title).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+  });
+
+  it('should throw an error if Title is used outside of Alert', () => {
+    const renderOutsideAlert = () =>
+      render(<Alert.Title>Invalid Title</Alert.Title>);
+
+    expect(renderOutsideAlert).toThrowError(
+      'Hierarchical Alert component is being used outside of the AlertProvider'
+    );
+  });
+
+  it('should throw an error if Description is used outside of Alert', () => {
+    const renderOutsideAlert = () =>
+      render(<Alert.Description>Invalid Description</Alert.Description>);
+
+    expect(renderOutsideAlert).toThrowError(
+      'Hierarchical Alert component is being used outside of the AlertProvider'
+    );
   });
 });

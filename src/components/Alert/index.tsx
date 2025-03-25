@@ -33,14 +33,40 @@ const Alert = ({
 
     switch (severity) {
       case 'success':
-        return <FontAwesomeIcon icon={faCheck} color={color} size="lg" />;
+        return (
+          <FontAwesomeIcon
+            icon={faCheck}
+            color={color}
+            size="lg"
+            data-testid="severity-icon"
+          />
+        );
       case 'warning':
-        return <FontAwesomeIcon icon={faExclamation} color={color} size="lg" />;
+        return (
+          <FontAwesomeIcon
+            icon={faExclamation}
+            color={color}
+            size="lg"
+            data-testid="severity-icon"
+          />
+        );
       case 'info':
-        return <FontAwesomeIcon icon={faInfo} color={color} size="lg" />;
+        return (
+          <FontAwesomeIcon
+            icon={faInfo}
+            color={color}
+            size="lg"
+            data-testid="severity-icon"
+          />
+        );
       case 'danger':
         return (
-          <FontAwesomeIcon icon={faCircleExclamation} color={color} size="lg" />
+          <FontAwesomeIcon
+            icon={faCircleExclamation}
+            color={color}
+            size="lg"
+            data-testid="severity-icon"
+          />
         );
       default:
         return null;
@@ -51,13 +77,19 @@ const Alert = ({
 
   return isClosed ? null : (
     <AlertContext.Provider value>
-      <StyledAlert severity={severity} variant={variant} {...props}>
+      <StyledAlert
+        severity={severity}
+        variant={variant}
+        role="alert"
+        {...props}
+      >
         <ContentContainer>
           {icon && getIcon()}
           <TextContentContainer>{children}</TextContentContainer>
         </ContentContainer>
         {!fixed && (
           <FontAwesomeIcon
+            data-testid="dismiss-icon"
             icon={faXmark}
             onClick={(e) => {
               e.preventDefault();
