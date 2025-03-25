@@ -127,8 +127,11 @@ const getTextColor = (
   }
 };
 
-export const StyledButton = styled.button<ButtonProps>`
-  min-width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
+export const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== 'fullWidth' // Filtra a prop fullWidth
+})<ButtonProps>`
+  min-width: fit-content;
+  width: ${(props) => getButtonMinWidth(props.fullWidth, props.size)};
   height: ${(props) => getButtonHeight(props.size)};
   border: ${(props) =>
     props.disabled
@@ -151,17 +154,17 @@ export const StyledButton = styled.button<ButtonProps>`
       ? `${spacing.xs} ${spacing.sm}`
       : `${spacing.sm} ${spacing.md}`};
   transition: background-color 0.3s ease;
+
   &:hover {
     background-color: ${(props) =>
       getHoverBackgroundColor(props.variant, props.disabled)};
   }
 `;
 
-export const ButtonContent = styled.div<ButtonProps>`
+export const ButtonContent = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: ${(props) =>
-    props.iconPosition === 'right' ? 'row' : 'row-reverse'};
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: ${spacing.sm};

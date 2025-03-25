@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  text?: string;
+  children?: React.ReactNode;
   variant?:
     | 'primary'
     | 'secondary'
@@ -13,7 +13,5 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     | 'ghost';
   disabled?: boolean;
   size?: 'small' | 'medium' | 'large';
-  icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
 };

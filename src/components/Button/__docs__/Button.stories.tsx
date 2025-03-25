@@ -21,10 +21,6 @@ const meta: Meta<typeof Example> = {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large']
-    },
-    iconPosition: {
-      control: 'select',
-      options: ['left', 'right']
     }
   }
 };
@@ -34,13 +30,11 @@ type Story = StoryObj<typeof Example>;
 
 export const Component: Story = {
   args: {
-    text: 'Button',
+    children: <p>Button</p>,
     variant: 'primary',
     disabled: false,
     size: 'small',
     onClick: () => console.log('Button'),
-    icon: null,
-    iconPosition: 'right',
     fullWidth: false
   }
 };

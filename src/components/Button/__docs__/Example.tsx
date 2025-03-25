@@ -1,4 +1,3 @@
-import React from 'react';
 import { FC } from 'react';
 import Button from '../';
 import { ButtonProps } from '../types';
@@ -8,9 +7,6 @@ const Example: FC<ButtonProps> = ({
   onClick = () => {},
   variant = 'primary',
   size = 'small',
-  text = 'Button',
-  icon,
-  iconPosition = 'right',
   fullWidth = false
 }) => {
   return (
@@ -24,14 +20,13 @@ const Example: FC<ButtonProps> = ({
     >
       <Button
         size={size}
-        text={text}
         disabled={disabled}
         onClick={onClick}
         variant={variant}
-        icon={icon}
-        iconPosition={iconPosition}
         fullWidth={fullWidth}
-      />
+      >
+        Button
+      </Button>
     </div>
   );
 };
