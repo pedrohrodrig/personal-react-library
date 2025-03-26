@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Alert from '../';
-import '@testing-library/jest-dom';
 import { colors } from '@/styles';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import Alert from '../';
 
 describe('Alert component', () => {
   it('should render correctly', () => {

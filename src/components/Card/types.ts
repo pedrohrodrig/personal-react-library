@@ -1,4 +1,4 @@
-import { ReactNode, HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
 export type CardProps = HTMLAttributes<HTMLDivElement> & {
   title?: string;

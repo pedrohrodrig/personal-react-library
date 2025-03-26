@@ -1,8 +1,8 @@
+import Button from '@/components/Button';
 import React from 'react';
 import Card from '../';
-import { CardProps } from '../types';
 import { Description } from '../styles';
-import Button from '@/components/Button';
+import { CardProps } from '../types';
 
 const Example: React.FC<CardProps> = ({
   title = 'Card Title',

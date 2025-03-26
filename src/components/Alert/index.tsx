@@ -1,13 +1,4 @@
-import { useState } from 'react';
-import { AlertDescriptionProps, AlertProps, AlertTitleProps } from './types';
-import {
-  ContentContainer,
-  Description,
-  StyledAlert,
-  TextContentContainer,
-  Title
-} from './styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { colors } from '@/styles';
 import {
   faCheck,
   faCircleExclamation,
@@ -15,8 +6,17 @@ import {
   faInfo,
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
-import { colors } from '@/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { AlertContext, useAlertContext } from './context';
+import {
+  ContentContainer,
+  Description,
+  StyledAlert,
+  TextContentContainer,
+  Title
+} from './styles';
+import { AlertDescriptionProps, AlertProps, AlertTitleProps } from './types';
 
 const Alert = ({
   children,

@@ -1,15 +1,15 @@
 import React from 'react';
-import { CardProps } from './types';
 import {
-  StyledCard,
-  Content,
-  Header,
-  Description,
-  Title,
-  Footer,
   Body,
-  Image
+  Content,
+  Description,
+  Footer,
+  Header,
+  Image,
+  StyledCard,
+  Title
 } from './styles';
+import { CardProps } from './types';
 
 // TODO: refactor footer and content to sub components
 const Card: React.FC<CardProps> = ({

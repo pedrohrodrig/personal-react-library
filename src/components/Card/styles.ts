@@ -1,6 +1,6 @@
+import { borderRadius, colors, fonts, spacing } from '@/styles';
 import styled from 'styled-components';
 import { CardProps } from './types';
-import { borderRadius, colors, fonts, spacing } from '@/styles';
 
 const getContainerMaxWidth = ({ direction, fullWidth }: CardProps) => {
   if (fullWidth) return 'unset';
