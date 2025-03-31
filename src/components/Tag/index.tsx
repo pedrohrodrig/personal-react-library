@@ -21,7 +21,7 @@ const Tag: React.FC<TagProps> = ({
   };
 
   return isClosed ? null : (
-    <StyledTag variant={variant} onClose={onClose} {...props}>
+    <StyledTag variant={variant} {...props}>
       {text}
       {!fixed && (
         <X
