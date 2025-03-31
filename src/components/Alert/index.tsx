@@ -16,7 +16,7 @@ const Alert = ({
   severity,
   variant = 'filled',
   fixed = false,
-  icon = true,
+  showIcon = true,
   onClose,
   ...props
 }: AlertProps) => {
@@ -55,7 +55,7 @@ const Alert = ({
         {...props}
       >
         <ContentContainer>
-          {icon && getIcon()}
+          {showIcon && getIcon()}
           <TextContentContainer>{children}</TextContentContainer>
         </ContentContainer>
         {!fixed && (

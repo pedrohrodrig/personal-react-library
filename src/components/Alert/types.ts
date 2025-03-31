@@ -5,7 +5,7 @@ export type AlertProps = HTMLAttributes<HTMLDivElement> & {
   severity: 'success' | 'warning' | 'info' | 'danger';
   variant?: 'filled' | 'outlined';
   fixed?: boolean;
-  icon?: boolean;
+  showIcon?: boolean;
   onClose?: () => void;
 };
 
