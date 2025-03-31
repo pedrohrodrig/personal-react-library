@@ -1,13 +1,6 @@
 import { colors } from '@/styles';
-import {
-  faCheck,
-  faCircleExclamation,
-  faExclamation,
-  faInfo,
-  faXmark
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { AlertCircle, AlertOctagon, CheckCircle, Info, X } from 'react-feather';
 import { AlertContext, useAlertContext } from './context';
 import {
   ContentContainer,
@@ -34,39 +27,17 @@ const Alert = ({
     switch (severity) {
       case 'success':
         return (
-          <FontAwesomeIcon
-            icon={faCheck}
-            color={color}
-            size="lg"
-            data-testid="severity-icon"
-          />
+          <CheckCircle color={color} size={24} data-testid="severity-icon" />
         );
       case 'warning':
         return (
-          <FontAwesomeIcon
-            icon={faExclamation}
-            color={color}
-            size="lg"
-            data-testid="severity-icon"
-          />
+          <AlertCircle color={color} size={24} data-testid="severity-icon" />
         );
       case 'info':
-        return (
-          <FontAwesomeIcon
-            icon={faInfo}
-            color={color}
-            size="lg"
-            data-testid="severity-icon"
-          />
-        );
+        return <Info color={color} size={24} data-testid="severity-icon" />;
       case 'danger':
         return (
-          <FontAwesomeIcon
-            icon={faCircleExclamation}
-            color={color}
-            size="lg"
-            data-testid="severity-icon"
-          />
+          <AlertOctagon color={color} size={24} data-testid="severity-icon" />
         );
       default:
         return null;
@@ -88,9 +59,8 @@ const Alert = ({
           <TextContentContainer>{children}</TextContentContainer>
         </ContentContainer>
         {!fixed && (
-          <FontAwesomeIcon
+          <X
             data-testid="dismiss-icon"
-            icon={faXmark}
             onClick={(e) => {
               e.preventDefault();
               if (onClose) {
@@ -98,6 +68,7 @@ const Alert = ({
               }
               setIsClosed(true);
             }}
+            size={20}
           />
         )}
       </StyledAlert>
