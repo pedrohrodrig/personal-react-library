@@ -47,7 +47,7 @@ const Alert = ({
   const [isClosed, setIsClosed] = useState(false);
 
   return isClosed ? null : (
-    <AlertContext.Provider value>
+    <AlertContext.Provider value={true}>
       <StyledAlert
         severity={severity}
         variant={variant}
