@@ -70,5 +70,8 @@
       "npm run prettier",
       "npm run lint"
     ]
+  },
+  "dependencies": {
+    "react-feather": "^2.0.10"
   }
 }

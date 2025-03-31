@@ -1,9 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Card from '../';
 import '@testing-library/jest-dom';
-
-// filepath: c:\Users\phrdv\OneDrive\Documentos\Projects\pessoal\personal-react-library\src\components\Card\__test__\Card.test.tsx
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import Card from '../';
 
 describe('Card component', () => {
   it('Card should render correctly', () => {

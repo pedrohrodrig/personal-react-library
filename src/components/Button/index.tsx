@@ -1,6 +1,6 @@
 import React from 'react';
+import { ButtonContent, StyledButton } from './styles';
 import { ButtonProps } from './types';
-import { StyledButton, ButtonContent } from './styles';
 
 const Button: React.FC<ButtonProps> = ({
   size,

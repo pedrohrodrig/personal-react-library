@@ -1,6 +1,6 @@
+import { borderRadius, colors, fonts, spacing } from '@/styles';
 import styled from 'styled-components';
 import { ButtonProps } from './types';
-import { colors, fonts, borderRadius, spacing } from '@/styles';
 
 const getHoverBackgroundColor = (
   variant: ButtonProps['variant'],

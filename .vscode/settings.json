@@ -4,6 +4,10 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.wordWrap": "on",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.removeUnusedImports": "explicit"
+  },
   "git.ignoreLimitWarning": true,
   "files.eol": "\n",
   "eslint.rules.customizations": [
