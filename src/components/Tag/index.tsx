@@ -25,6 +25,7 @@ const Tag: React.FC<TagProps> = ({
       {text}
       {!fixed && (
         <X
+          role={'img'}
           size={12}
           color={colors[variant].dark}
           onClick={handleClose}
