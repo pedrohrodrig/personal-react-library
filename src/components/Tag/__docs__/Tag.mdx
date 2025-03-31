@@ -1,0 +1,41 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import Example from './Example.tsx';
+import * as Tag from './Tag.stories.tsx';
+
+<Meta of={Tag} title="Tag" />
+
+# Tag
+
+Tag component with customizable props.
+
+#### Example
+
+<Canvas of={Tag.Component} />
+
+## Usage
+
+```tsx
+import { Tag } from 'sld-ui';
+
+const Example = () => {
+  return (
+    <Tag
+      text="Tag Text"
+      variant="primary"
+      fixed={false}
+      onClose={() => console.log('Tag closed')}
+    />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- **text** _`string`_ - The text content of the tag.
+- **variant**
+  _`'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'danger'`_ - The
+  variant of the tag.
+- **fixed** _`boolean`_ - Whether the tag is fixed (non-dismissible).
+- **onClose** _`() => void`_ - A function that is called when the tag is closed.
